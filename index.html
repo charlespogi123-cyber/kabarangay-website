@@ -1,13 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KaBarangay Information System</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KaBarangay | Home</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <h1>Welcome to KaBarangay</h1>
-  <p>This is your homepage. Start building!</p>
+  <header>
+    <nav class="navbar">
+      <h1>KaBarangay</h1>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="directory.html">Officials</a></li>
+        <li><a href="announcements.html">Announcements</a></li>
+        <li><a href="request.html">Request Document</a></li>
+        <li><a href="status.html">Check Status</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Welcome to KaBarangay!</h2>
+      <p>Your one-stop platform for barangay services, updates, and more.</p>
+      <a href="request.html" class="btn">Request a Document</a>
+    </section>
+
+    <section class="updates">
+      <h3>Latest Announcements</h3>
+      <div id="announcement-list">
+        
+      </div>
+    </section>
+    
+     <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+      <h3>Frequently Asked Questions</h3>
+
+      <div class="faq-item">
+        <button class="faq-question">How can I request a Barangay Clearance?</button>
+        <div class="faq-answer">
+          <p>You can fill out the online form on the "Request Document" page. Upload a valid ID and state your purpose. You'll get a reference number after submission.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">How do I check my request status?</button>
+        <div class="faq-answer">
+          <p>Go to the "Check Status" page and enter your reference number. You'll see the status of your request.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What documents can I request?</button>
+        <div class="faq-answer">
+          <p>You can request Barangay Clearance, Business Permit, Certificate of Residency, and more — as listed on the Request Document page.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Is there a fee for requesting documents?</button>
+        <div class="faq-answer">
+          <p>Yes, standard barangay fees apply. You'll be informed of the fee and can pay it during document pickup at the barangay hall.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 KaBarangay. All rights reserved.</p>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
