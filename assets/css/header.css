@@ -1,4 +1,5 @@
-header {
+header, 
+.header {
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -6,25 +7,32 @@ header {
     z-index: 100;
 }
 
-.header-content {
+.header-content, 
+.header__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.logo {
+.logo, 
+.header__logo {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.logo-icon {
+.logo-icon, 
+.header__logo-icon {
     font-size: 28px;
     color: var(--primary);
 }
 
-.logo-text {
+.logo-text, 
+.header__logo-text {
     font-size: 24px;
     font-weight: 700;
     color: var(--primary);
@@ -64,7 +72,8 @@ nav a.active::after {
     border-radius: 2px;
 }
 
-.mobile-menu-btn {
+.mobile-menu-btn,
+.header__menu-btn {
     display: none;
     background: none;
     border: none;
@@ -75,13 +84,15 @@ nav a.active::after {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .header-content {
+    .header-content, 
+    .header__content {
         flex-direction: column;
         text-align: center;
         padding: 15px 0;
     }
 
-    .logo {
+    .logo, 
+    .header__logo {
         margin-bottom: 15px;
     }
 
@@ -90,7 +101,8 @@ nav a.active::after {
         gap: 15px;
     }
 
-    .mobile-menu-btn {
+    .mobile-menu-btn, 
+    .header__menu-btn {
         display: block;
         position: absolute;
         top: 20px;

@@ -5,26 +5,31 @@ footer {
     margin-top: 60px;
 }
 
-.footer-content {
+/* Unified container */
+.footer-content, 
+.footer__container {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.footer-logo {
+.footer-logo,
+.footer__logo {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 20px;
     color: white;
 }
 
-.footer-info {
+.footer-info,
+.footer__info {
     margin-bottom: 20px;
     line-height: 1.8;
 }
 
-.copyright {
+.copyright,
+.footer__copyright {
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);

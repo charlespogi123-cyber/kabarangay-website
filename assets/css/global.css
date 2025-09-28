@@ -28,37 +28,54 @@ body {
 }
 
 /* Button Styles */
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
+
+.btn,
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
     background-color: var(--secondary);
     color: white;
-    border-radius: 50px;
+    border-radius: 0.5rem;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s;
-    border: none;
     cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
 }
 
-.btn:hover {
+.btn:hover,
+.btn-primary:hover {
     background-color: #0da271;
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
-.btn-outline {
+.btn-outline,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
     background-color: transparent;
     border: 2px solid white;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
     margin-left: 10px;
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-secondary:hover {
     background-color: white;
     color: var(--primary);
+    border-color: rgba(107, 114, 128, 0.5);
 }
 
-/* Section Title */
 .section-title {
     text-align: center;
     margin-bottom: 50px;
@@ -66,7 +83,6 @@ body {
     font-size: 2rem;
 }
 
-/* Page Content */
 .page-content {
     display: none;
     padding: 60px 0;
