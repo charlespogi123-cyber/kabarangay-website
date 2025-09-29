@@ -46,3 +46,122 @@
   border: none;
   font-size: 1.5rem;
 }
+
+/* Staff Login Button */
+.header__login-btn {
+  padding: 8px 14px;
+  background: #0073e6;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s ease;
+}
+.header__login-btn:hover {
+  background: #005bb5;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+/* Overlay with blur effect */
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+/* Modal Content */
+.modal__content {
+  position: relative;
+  background: #fff;
+  max-width: 400px;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 10000;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+}
+
+.modal__content h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.modal__content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__content input {
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.modal__content .btn {
+  padding: 10px;
+  background: #0073e6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.modal__content .btn:hover {
+  background: #005bb5;
+}
+
+/* Close Button */
+.modal__close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.nav__item--mobile { display: none; }
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .header__menu-btn {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    display: none;
+    flex-direction: column;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+  }
+  .nav.active {
+    display: flex;
+  }
+  .nav__list {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .header__login-btn--desktop {
+    display: none;
+  }
+  .nav__item--mobile {
+    display: block;
+  }
+}
