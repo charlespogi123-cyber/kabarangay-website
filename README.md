@@ -36,16 +36,7 @@ data → JSON files storing announcements and officials.
 partials → HTML snippets (header, footer, request form, etc.) dynamically injected into pages.
 
 
-# Running the Project Locally
-# Option 1: Open directly
-Clone or download this repository.
-
-Open index.html in your browser.
-
-Navigate through the site normally.
-
-
-# Option 2: Run with a local server
+# Run with a local server
 VS Code Live Server Extension
 
 Right-click index.html → “Open with Live Server”.
