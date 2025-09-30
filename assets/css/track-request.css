@@ -1,8 +1,4 @@
-/* =========================
-   TRACK SECTION
-========================= */
 .track {
-  padding: 4rem 1rem;
   background: #f9fafb;
 }
 
@@ -29,9 +25,11 @@
 }
 
 .track__heading {
-  font-size: 1.75rem;
   font-weight: 700;
-  color: #1f2937;
+  text-align: center;
+  color: var(--dark);
+  font-size: 2rem;
+  padding-top: 1.5em;
 }
 
 .track__description {
@@ -41,9 +39,6 @@
   color: #4b5563;
 }
 
-/* =========================
-   SEARCH CARD
-========================= */
 .search__card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
@@ -290,6 +285,49 @@
 .timeline__item p {
   font-size: 0.875rem;
   color: #6b7280;
+}
+
+.timeline__list {
+  counter-reset: step;
+  list-style: none; /* remove default browser numbering */
+  padding-left: 2rem;
+  position: relative;
+}
+
+.timeline__item {
+  position: relative;
+  padding-left: 2.5rem; /* space for number + circle */
+  counter-increment: step;
+}
+
+/* Number + circle wrapper */
+.timeline__item::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background: #d1d5db;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline__item--completed::before {
+  background: #7104fffb;
+}
+
+.timeline__item--current::before {
+  background: #ffd904fb;
+}
+
+.timeline__item--submitted::before {
+  background: #2746f3;
 }
 
 /* =========================

@@ -11,36 +11,17 @@ kabarangay-website-main/
 ├── announcements.html      # Announcements page
 ├── directory.html          # Barangay directory
 ├── services.html           # List of barangay services
-├── request.html            # Service request form
-├── status.html             # Status information
+├── contact.html            # Contact List
+├── faq.html                # FAQ information
 ├── track-request.html      # Track service request
 │
 ├── assets/
 │   ├── css/                # Stylesheets
-│   │   ├── document-request.css
-│   │   ├── footer.css
-│   │   ├── global.css
-│   │   ├── header.css
-│   │   ├── main.css
-│   │   ├── nav.css
-│   │   ├── style.css
-│   │   └── track-request.css
 │   └── js/                 # JavaScript files
-│       ├── announcements.js
-│       ├── directory.js
-│       ├── header.js
-│       ├── partials.js
-│       └── script.js
-│
 ├── data/                   # Static JSON data
-│   ├── announcements.json
-│   └── officials.json
-│
 └── partials/               # Reusable HTML snippets
-    ├── document-request.html
-    ├── footer.html
-    ├── header.html
-    └── track-request.html
+    ├── content/            # Main content for HTML
+    ├── layout/             # Reusable common HTML layout
 ```
 
 # Key Components
