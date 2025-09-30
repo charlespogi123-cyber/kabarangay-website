@@ -1,7 +1,10 @@
+const base = window.location.pathname.includes("kabarangay-website")
+  ? "/kabarangay-website"
+  : "";
+
 document.addEventListener("DOMContentLoaded", () => {
   const announcementList = document.getElementById("announcement-list");
-
-  fetch('data/announcements.json')
+  fetch(`${base}/data/announcements.json`)
     .then(response => response.json())
     .then(data => {
       if (data.length === 0) {

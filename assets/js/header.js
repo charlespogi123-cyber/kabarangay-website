@@ -1,5 +1,9 @@
+const base = window.location.pathname.includes("kabarangay-website")
+  ? "/kabarangay-website"
+  : "";
+
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("../../partials/layout/header.html")
+    fetch(`${base}/partials/layout/header.html`)
     .then((res) => res.text())
     .then((data) => {
       document.getElementById("header-container").innerHTML = data;
