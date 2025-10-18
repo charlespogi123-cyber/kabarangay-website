@@ -30,25 +30,5 @@ document.addEventListener("DOMContentLoaded", function () {
           navMenu.classList.toggle("active");
         });
       }
-
-      // ✅ Modal logic (now inside .then so elements exist)
-      const staffLoginBtn = document.getElementById("staffLoginBtn");
-      const loginModal = document.getElementById("loginModal");
-      const closeModal = document.getElementById("closeModal");
-      const overlay = document.querySelector(".modal__overlay");
-
-      if (staffLoginBtn && loginModal && closeModal && overlay) {
-        staffLoginBtn.addEventListener("click", () => {
-          loginModal.style.display = "block";
-        });
-
-        closeModal.addEventListener("click", () => {
-          loginModal.style.display = "none";
-        });
-
-        overlay.addEventListener("click", () => {
-          loginModal.style.display = "none";
-        });
-      }
     });
 });
