@@ -2,17 +2,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const includeElements = document.querySelectorAll("[data-include]");
   const promises = [];
 
-  includeElements.forEach(el => {
+  includeElements.forEach((el) => {
     const file = el.getAttribute("data-include");
     const promise = fetch(file)
-      .then(res => {
+      .then((res) => {
         if (!res.ok) throw new Error(`Could not fetch ${file}`);
         return res.text();
       })
-      .then(data => {
+      .then((data) => {
         el.outerHTML = data;
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Error loading partial:", err);
         el.outerHTML = `<p style="color:red;">Error loading content.</p>`;
       });

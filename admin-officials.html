@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="assets/css/admin-form.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
   </head>
-
   <body>
     <!-- Reusable Header -->
     <div data-include="partials/layout/admin-header.html"></div>
@@ -37,23 +36,23 @@
     <!-- Navigation Tabs -->
     <nav class="tabs">
       <a href="admin-dashboard.html" class="nav__link"
-        ><button class="tab active">Announcements</button></a
+        ><button class="tab">Announcements</button></a
       >
       <a href="admin-documents.html" class="nav__link"
         ><button class="tab">Document Requests</button>
       </a>
       <a href="admin-officials.html" class="nav__link"
-        ><button class="tab">Officials Management</button>
+        ><button class="tab active">Officials Management</button>
       </a>
     </nav>
 
     <!-- Main Dashboard -->
     <main class="dashboard">
       <!-- Add Announcement -->
-      <div data-include="partials/content/admin/addAnnouncement.html"></div>
+      <div data-include="partials/content/admin/addOfficials.html"></div>
 
       <!-- Announcement List -->
-      <section id="announcement-list" class="announcement-list"></section>
+      <section id="officials-container" class="announcement-list"></section>
     </main>
 
     <!-- Login Modal Script -->
@@ -68,13 +67,6 @@
     </script>
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
-    <!-- <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const script = document.createElement("script");
-        script.src = "assets/js/admin/announcements.js";
-        document.body.appendChild(script);
-      });
-    </script> -->
-    <script src="assets/js/admin/announcements.js" defer></script>
+    <script src="assets/js/admin/officials.js" defer></script>
   </body>
 </html>

@@ -29,6 +29,10 @@
   animation: slideDown 0.3s ease;
 }
 
+.modal-box {
+  width: 100rem;
+}
+
 /* Close button */
 .modal__close {
   position: absolute;
