@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KaBarangay - Home</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/document-request.css" />
     <link
@@ -23,5 +27,14 @@
 
     <script src="assets/js/partials.js"></script>
     <script src="assets/js/header.js"></script>
+    <script src="assets/js/services.js"></script>
+    <!-- Load login modal logic AFTER header is loaded -->
+    <script>
+      document.addEventListener("partialsLoaded", () => {
+        const script = document.createElement("script");
+        script.src = "assets/js/login-modal.js";
+        document.body.appendChild(script);
+      });
+    </script>
   </body>
 </html>

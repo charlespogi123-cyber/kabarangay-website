@@ -1,20 +1,22 @@
-<header class="header" id="header-container">
-  <div class="header__container">
-    <div class="header__content">
+<header class="header sticky-top" id="header-container">
+  <div class="container header__container">
+    <div
+      class="header__content d-flex justify-content-between align-items-center py-3"
+    >
       <!-- Logo -->
-      <div class="header__logo">
+      <div class="header__logo d-flex align-items-center">
         <i class="header__logo-icon fas fa-building"></i>
-        <span class="header__logo-text">KaBarangay</span>
+        <span class="header__logo-text ml-2">KaBarangay</span>
       </div>
 
       <!-- Mobile Menu Button -->
-      <button class="header__menu-btn" id="mobileMenuBtn">
+      <button class="header__menu-btn d-md-none" id="mobileMenuBtn">
         <i class="fas fa-bars"></i>
       </button>
 
       <!-- Navigation -->
-      <nav class="nav" id="navMenu">
-        <ul class="nav__list">
+      <nav class="nav d-none d-md-flex" id="navMenu">
+        <ul class="nav__list list-unstyled d-flex mb-0">
           <li class="nav__item">
             <a href="index.html" class="nav__link" data-page="home">Home</a>
           </li>
@@ -56,32 +58,72 @@
       </nav>
 
       <!-- Staff Login Button -->
-      <button class="header__login-btn" id="staffLoginBtn">
-        <i class="fas fa-user-lock"></i> Staff Login
+      <button
+        class="staff-login-btn btn btn-primary d-none d-md-flex"
+        id="staffLoginBtn"
+      >
+        <i class="fas fa-user-lock"></i>
+        <span>Staff Login</span>
       </button>
     </div>
   </div>
 </header>
 
 <!-- Login Modal -->
-<div class="modal" id="loginModal">
-  <div class="modal__overlay"></div>
-  <div class="modal__content">
-    <span class="modal__close" id="closeModal">&times;</span>
-    <h2>Staff Login</h2>
-    <form>
-      <label for="username">Username</label>
-      <input type="text" id="username" placeholder="Enter username" required />
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="staffLoginTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content modal__content modal-box p-4">
+      <button
+        type="button"
+        class="close modal__close"
+        data-dismiss="modal"
+        aria-label="Close"
+        id="closeModal"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
 
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        placeholder="Enter password"
-        required
-      />
+      <h2 class="h5 mb-3">Staff Login</h2>
+      <form id="loginFormModal">
+        <div class="form-group">
+          <label for="modalUsername">Username</label>
+          <input
+            type="text"
+            id="modalUsername"
+            name="username"
+            class="form-control"
+            placeholder="Enter username"
+            required
+          />
+        </div>
 
-      <button type="submit" class="btn">Login</button>
-    </form>
+        <div class="form-group">
+          <label for="modalPassword">Password</label>
+          <input
+            type="password"
+            id="modalPassword"
+            name="password"
+            class="form-control"
+            placeholder="Enter password"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary btn-block justify-content-center mt-3"
+        >
+          Login
+        </button>
+      </form>
+    </div>
   </div>
 </div>
+<!-- <script src="assets/js/login-modal.js"></script> -->
