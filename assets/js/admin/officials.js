@@ -18,7 +18,7 @@ document.addEventListener("partialsLoaded", () => {
       .then((response) => response.json())
       .then((data) => {
         officialsData = data.officials;
-        renderOfficials(officialsData);
+        renderOfficials();
       })
       .catch((error) => console.error("Error loading officials.json:", error));
   } else {
@@ -27,12 +27,12 @@ document.addEventListener("partialsLoaded", () => {
   }
 
   // Function to render all officials
-  function renderOfficials(officials) {
+  function renderOfficials() {
     const container = document.getElementById("officials-container");
     container.innerHTML = ""; // Clear previous content
 
-    sessionStorage.setItem("officials", JSON.stringify(officials));
-    officials.forEach((official, index) => {
+    sessionStorage.setItem("officials", JSON.stringify(officialsData));
+    officialsData.forEach((official, index) => {
       const card = document.createElement("div");
       card.className = "card mb-4";
       card.setAttribute("data-index", index);
@@ -78,7 +78,7 @@ document.addEventListener("partialsLoaded", () => {
       buttonGroup.querySelector(".delete-btn").addEventListener("click", () => {
         if (confirm(`Delete ${official.name}?`)) {
           officialsData.splice(index, 1); // Remove from data array
-          renderOfficials(officialsData); // Re-render
+          renderOfficials(); // Re-render
         }
       });
 
@@ -146,6 +146,6 @@ document.addEventListener("partialsLoaded", () => {
       this.reset();
       formTitle.textContent = "➕ Add New Barangay Official";
       submitButton.textContent = "Add";
-      renderOfficials(officialsData);
+      renderOfficials();
     });
 });

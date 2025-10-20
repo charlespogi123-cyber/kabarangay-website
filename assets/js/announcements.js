@@ -17,7 +17,7 @@ document.addEventListener("partialsLoaded", () => {
         console.error("Error:", error);
       });
   } else {
-    announcements = JSON.parse(storedData);
+    announcementList = JSON.parse(storedData);
     renderAnnouncements();
   }
 

@@ -1,4 +1,7 @@
 document.addEventListener("partialsLoaded", () => {
+  const base = window.location.pathname.includes("kabarangay-website")
+    ? "/kabarangay-website"
+    : "";
   let officials = [];
   const storedData = sessionStorage.getItem("officials");
   if (!storedData) {
