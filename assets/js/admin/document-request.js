@@ -1,7 +1,18 @@
-document.addEventListener("DOMContentLoaded", () => {
+import { loadPartials } from "../partials.js";
+import { protectPage, initLogout } from "./auth.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
   const base = window.location.pathname.includes("kabarangay-website")
     ? "/kabarangay-website"
     : "";
+
+  if (!protectPage()) return;
+
+  // 2. Load reusable UI parts
+  await loadPartials();
+
+  // 3. Initialize logout button
+  await initLogout();
 
   const searchInput = document.getElementById("searchInput");
   const cardContainer = document.getElementById("cardContainer");
@@ -183,9 +194,9 @@ document.addEventListener("DOMContentLoaded", () => {
   searchInput.addEventListener("input", (e) => {
     const query = e.target.value.toLowerCase();
 
-    if (!requestData || !requestData.documents) return;
+    if (!requestData) return;
 
-    const filteredDocs = requestData.documents.filter((doc) => {
+    const filteredDocs = requestData.filter((doc) => {
       return (
         doc.request_id.toLowerCase().includes(query) ||
         doc.applicant.name.toLowerCase().includes(query) ||

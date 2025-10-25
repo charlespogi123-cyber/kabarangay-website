@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
+// partials.js
+export const loadPartials = () => {
   const includeElements = document.querySelectorAll("[data-include]");
   const promises = [];
 
@@ -19,10 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
     promises.push(promise);
   });
 
-  // After ALL partials have been fetched and inserted...
-  Promise.all(promises).then(() => {
-    // ...dispatch the custom event that index.html is waiting for.
+  return Promise.all(promises).then(() => {
     document.dispatchEvent(new CustomEvent("partialsLoaded"));
     console.log("All partials loaded successfully.");
   });
-});
+};

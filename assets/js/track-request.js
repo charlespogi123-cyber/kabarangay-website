@@ -1,4 +1,21 @@
-document.addEventListener("partialsLoaded", () => {
+import { initHeader } from "./header.js";
+import { loadPartials } from "./partials.js";
+import { initLoginModal } from "./login-modal.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
+  // Load partials first
+  await loadPartials();
+
+  // Then initialize header
+  await initHeader();
+
+  // Load login-modal
+  await initLoginModal();
+
+  // Other scripts for track request page
+  const base = window.location.pathname.includes("kabarangay-website")
+    ? "/kabarangay-website"
+    : "";
   const form = document.getElementById("searchForm");
   const input = document.getElementById("trackSearch");
   const detailsSection = document.getElementById("detailsSection");
