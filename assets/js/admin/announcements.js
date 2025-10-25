@@ -1,7 +1,18 @@
-document.addEventListener("partialsLoaded", () => {
+import { loadPartials } from "../partials.js";
+import { protectPage, initLogout } from "./auth.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
   const base = window.location.pathname.includes("kabarangay-website")
     ? "/kabarangay-website"
     : "";
+
+  if (!protectPage()) return;
+
+  // 2. Load reusable UI parts
+  await loadPartials();
+
+  // 3. Initialize logout button
+  await initLogout();
   let announcementsData = [];
   let isEditMode = false;
   let currentEditIndex = null;
@@ -71,7 +82,6 @@ document.addEventListener("partialsLoaded", () => {
   function renderAnnouncements() {
     container.innerHTML = "";
 
-    console.log(announcementsData, typeof announcementsData);
     const sortedAnnouncements = announcementsData.sort((a, b) => {
       const dateA = new Date(a.date);
       const dateB = new Date(b.date);

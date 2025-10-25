@@ -1,8 +1,18 @@
-const base = window.location.pathname.includes("kabarangay-website")
-  ? "/kabarangay-website"
-  : "";
+import { loadPartials } from "../partials.js";
+import { protectPage, initLogout } from "./auth.js";
 
-document.addEventListener("partialsLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  const base = window.location.pathname.includes("kabarangay-website")
+    ? "/kabarangay-website"
+    : "";
+
+  if (!protectPage()) return;
+
+  // 2. Load reusable UI parts
+  await loadPartials();
+
+  // 3. Initialize logout button
+  await initLogout();
   let officialsData = []; // Store loaded data for reuse
   let editingIndex = null; // Track the index of the official being edited
   const formTitle = document.querySelector(".form-container h3");

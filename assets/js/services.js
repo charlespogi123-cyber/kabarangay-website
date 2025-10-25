@@ -1,4 +1,18 @@
-document.addEventListener("partialsLoaded", () => {
+import { initHeader } from "./header.js";
+import { loadPartials } from "./partials.js";
+import { initLoginModal } from "./login-modal.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
+  // Load partials first
+  await loadPartials();
+
+  // Then initialize header
+  await initHeader();
+
+  // Load login-modal
+  await initLoginModal();
+
+  // Other scripts for services page
   document
     .querySelector(".document-request__form")
     .addEventListener("submit", async (e) => {

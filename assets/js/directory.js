@@ -1,7 +1,19 @@
-document.addEventListener("partialsLoaded", () => {
+import { initHeader } from "./header.js";
+import { loadPartials } from "./partials.js";
+import { initLoginModal } from "./login-modal.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
   const base = window.location.pathname.includes("kabarangay-website")
     ? "/kabarangay-website"
     : "";
+
+  // Load partials first
+  await loadPartials();
+
+  // Then initialize header
+  await initHeader();
+
+  await initLoginModal();
   let officials = [];
   const storedData = sessionStorage.getItem("officials");
   if (!storedData) {
