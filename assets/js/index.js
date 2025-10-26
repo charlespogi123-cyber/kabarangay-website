@@ -1,3 +1,4 @@
+// main.js
 import { initHeader } from "./header.js";
 import { loadPartials } from "./partials.js";
 import { initLoginModal } from "./login-modal.js";

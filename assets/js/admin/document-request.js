@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     ? "/kabarangay-website"
     : "";
 
+  // Protect page: only allow access if user is authenticated
   if (!protectPage()) return;
 
   // 2. Load reusable UI parts
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // 3. Initialize logout button
   await initLogout();
 
+  // Select important DOM elements
   const searchInput = document.getElementById("searchInput");
   const cardContainer = document.getElementById("cardContainer");
   let requestData = null;
@@ -33,11 +35,15 @@ document.addEventListener("DOMContentLoaded", async () => {
           "<p class='text-danger'>Error loading request data.</p>";
       });
   } else {
+    // Use cached data if available
     requestData = JSON.parse(storedData);
     renderCards(requestData);
   }
 
-  // Helper: get progress bar status and color
+  /**
+   * Helper function: Get progress bar details based on status
+   * Returns an object containing percentage value, label, and Bootstrap color class
+   */
   function getProgress(status) {
     switch (status) {
       case "Pending":
@@ -53,10 +59,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  // Helper: update timeline based on status
+  /**
+   * Helper function: Update timeline array based on current document status
+   * Each document has a timeline (array of steps with status and date)
+   */
   function updateTimeline(status, timeline) {
     const today = new Date().toISOString().split("T")[0];
 
+    // Case 1: Completed – mark all steps as completed
     if (status === "Completed") {
       return timeline.map((step) => ({
         ...step,
@@ -65,6 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }));
     }
 
+    // Case 2: Cancelled – mark the first unfinished step as cancelled
     if (status === "Cancelled") {
       let updated = false;
       return timeline.map((step) => {
@@ -80,6 +91,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     }
 
+    // Case 3: Processing – mark next pending step as "In Progress"
     if (status === "Processing") {
       let updated = false;
       return timeline.map((step) => {
@@ -96,21 +108,26 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     }
 
-    // Leave timeline untouched for Pending
+    // Case 4: Pending – leave the timeline as is
     return timeline;
   }
 
-  // Render all cards
+  /**
+   * Main function: Render all request cards dynamically
+   * Each card shows applicant info, request details, and progress bar
+   */
   function renderCards(documents) {
-    cardContainer.innerHTML = "";
-    sessionStorage.setItem("documents", JSON.stringify(documents));
+    cardContainer.innerHTML = ""; // Clear previous cards
+    sessionStorage.setItem("documents", JSON.stringify(documents)); // Save data in sessionStorage
 
     documents.forEach((doc, index) => {
       const progress = getProgress(doc.status);
 
+      // Create card container using Bootstrap's card layout
       const cardDiv = document.createElement("div");
       cardDiv.className = "card mb-3";
 
+      // Use template literals for dynamic HTML content
       cardDiv.innerHTML = `
         <div class="card-header d-flex justify-content-between align-items-center">
           <span><strong>Request ID:</strong> ${doc.request_id}</span>
@@ -204,6 +221,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       );
     });
 
+    // Re-render filtered results
     if (filteredDocs.length > 0) {
       renderCards(filteredDocs);
     } else {

@@ -1,3 +1,11 @@
+// track-request.js
+// ==========================================================
+// Handles the "Track Request" page functionality for KaBarangay
+// - Loads partial components (header, footer, modal)
+// - Allows users to search document requests by ID, name, or email
+// - Displays matched request details and timeline
+// - Uses dynamic HTML rendering with clear status-based UI styling
+// ==========================================================
 import { initHeader } from "./header.js";
 import { loadPartials } from "./partials.js";
 import { initLoginModal } from "./login-modal.js";
@@ -20,12 +28,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   const input = document.getElementById("trackSearch");
   const detailsSection = document.getElementById("detailsSection");
 
+  // --- Add submit event for the tracking form ---
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const query = input.value.trim().toLowerCase();
     if (!query) return;
 
     try {
+      // --- Fetch document requests data from JSON file ---
       const response = await fetch(`${base}/data/document-request.json`);
       const data = await response.json();
       const match = data.documents.find((doc) => {
@@ -36,6 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         );
       });
 
+      // --- If match found, render details; else show message ---
       if (match) {
         renderDetails(match);
         detailsSection.hidden = false;
@@ -48,6 +59,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 });
+
+/**
+ * Render details and timeline for a matched request
+ * @param {Object} doc - The document request object from JSON data
+ */
 
 function renderDetails(doc) {
   const timelineSteps = doc.timeline
@@ -72,6 +88,7 @@ function renderDetails(doc) {
     })
     .join("");
 
+  // --- Create detailed request info layout ---
   const detailsHTML = `
     <article class="details__card request">
       <header class="request__header">
@@ -129,9 +146,15 @@ function renderDetails(doc) {
     </article>
   `;
 
+  // --- Insert generated HTML into the details section ---
   document.getElementById("detailsSection").innerHTML = detailsHTML;
 }
 
+/**
+ * Format a date string into readable format (e.g., "October 27, 2025")
+ * @param {string} dateStr - The raw date string (YYYY-MM-DD)
+ * @returns {string} - Formatted human-readable date
+ */
 function formatDate(dateStr) {
   const options = { year: "numeric", month: "long", day: "numeric" };
   return new Date(dateStr).toLocaleDateString(undefined, options);
