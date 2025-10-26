@@ -1,3 +1,11 @@
+// services.js
+// ==========================================================
+// Handles document request form submission logic
+// - Loads partial HTML files (header, footer, etc.)
+// - Initializes header navigation and login modal
+// - Manages document request creation, ID generation, and
+//   storage using sessionStorage
+// ==========================================================
 import { initHeader } from "./header.js";
 import { loadPartials } from "./partials.js";
 import { initLoginModal } from "./login-modal.js";

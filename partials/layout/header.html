@@ -1,3 +1,11 @@
+<!-- ==============================================================
+  HEADER COMPONENT
+  ---------------------------------------------------------------
+  This header serves as the main navigation bar of the KaBarangay website.
+  It includes the logo, navigation menu, and a staff login button.
+  The design uses Bootstrap classes for responsive layout and accessibility.
+================================================================= -->
+
 <header
   class="header sticky-top"
   id="header-container"
@@ -8,17 +16,29 @@
     <div
       class="header__content d-flex justify-content-between align-items-center py-3"
     >
-      <!-- Logo -->
+      <!-- ==========================
+        LOGO SECTION
+        Contains the KaBarangay logo icon and text label.
+        The d-flex class ensures proper alignment between the icon and text.
+      =========================== -->
       <div
         class="header__logo d-flex align-items-center"
         role="img"
         aria-label="KaBarangay logo"
       >
-        <i class="header__logo-icon fas fa-building" aria-hidden="true"></i>
+        <i
+          class="header__logo-icon fas fa-building"
+          aria-label="KaBarangay Logo"
+        ></i>
         <span class="header__logo-text ml-2">KaBarangay</span>
       </div>
 
-      <!-- Mobile Menu Button -->
+      <!-- ==========================
+        MOBILE MENU BUTTON
+        Appears on smaller screens.
+        Toggles the visibility of the navigation menu.
+        Uses Bootstrap utility classes for responsive behavior.
+      =========================== -->
       <button
         class="header__menu-btn"
         id="mobileMenuBtn"
@@ -29,7 +49,12 @@
         <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
 
-      <!-- Navigation -->
+      <!-- ==========================
+        MAIN NAVIGATION
+        Contains the site’s main navigation links.
+        Uses Bootstrap’s list-unstyled and mb-0 to remove default styles.
+        The `data-page` attribute helps track the active page dynamically.
+      =========================== -->
       <nav
         class="nav"
         id="navMenu"
@@ -77,7 +102,11 @@
         </ul>
       </nav>
 
-      <!-- Staff Login Button -->
+      <!-- ==========================
+        STAFF LOGIN BUTTON
+        Opens the staff login modal dialog.
+        Styled using Bootstrap’s btn and btn-primary classes.
+      =========================== -->
       <button
         class="staff-login-btn btn btn-primary d-flex"
         id="staffLoginBtn"
@@ -92,7 +121,12 @@
   </div>
 </header>
 
-<!-- Login Modal -->
+<!-- ==============================================================
+  LOGIN MODAL COMPONENT
+  ---------------------------------------------------------------
+  Displays a modal dialog for staff login.
+  Uses Bootstrap’s modal structure and accessibility attributes.
+================================================================= -->
 <div
   class="modal fade"
   id="loginModal"
@@ -104,6 +138,7 @@
 >
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content modal__content modal-box p-4">
+      <!-- Close button -->
       <button
         type="button"
         class="close modal__close"
@@ -113,11 +148,19 @@
         <span aria-hidden="true">&times;</span>
       </button>
 
+      <!-- Modal Header -->
       <h2 id="staffLoginTitle" class="h5 mb-2">Staff Login</h2>
+
+      <!-- Screen-reader description for accessibility -->
       <p id="staffLoginDesc" class="sr-only">
         Please enter your username and password to access the staff portal.
       </p>
 
+      <!-- ==========================
+        LOGIN FORM
+        Includes username and password fields with validation.
+        Uses Bootstrap form-group and form-control classes for styling.
+      =========================== -->
       <form id="loginFormModal" aria-describedby="staffLoginDesc">
         <div class="form-group">
           <label for="modalUsername">Username</label>
@@ -145,6 +188,7 @@
           />
         </div>
 
+        <!-- Submit button -->
         <button
           type="submit"
           class="btn btn-primary btn-block justify-content-center mt-3"

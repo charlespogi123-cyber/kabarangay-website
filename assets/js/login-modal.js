@@ -1,7 +1,12 @@
 // modal-login.js
+// ===============================
+// Initializes the Staff Login Modal logic
+// Handles opening, closing, and login validation
+// ===============================
 export const initLoginModal = () => {
   console.log("Initializing login modal...");
 
+  // --- Select modal-related elements from the DOM ---
   const loginModal = document.getElementById("loginModal");
   const openModalBtn = document.getElementById("staffLoginBtn");
   const closeModalBtn = document.getElementById("closeModal");
@@ -11,6 +16,7 @@ export const initLoginModal = () => {
   const loginForm = document.getElementById("loginFormModal");
   const errorMsg = document.getElementById("loginError");
 
+  // --- Safety check: Skip initialization if modal elements are missing ---
   if (!loginModal || !openModalBtn) {
     console.warn(
       "Login modal elements not found. Skipping modal initialization."
@@ -19,6 +25,7 @@ export const initLoginModal = () => {
   }
 
   // --- Open Modal ---
+  // Triggered when the "Staff Login" button is clicked
   openModalBtn.addEventListener("click", () => {
     console.log("Opening login modal...");
     loginModal.classList.add("show");
@@ -26,6 +33,7 @@ export const initLoginModal = () => {
   });
 
   // --- Close Modal ---
+  // Closes modal when clicking the close button or overlay
   const closeElements = [closeModalBtn, overlay].filter(Boolean);
   closeElements.forEach((el) => {
     el.addEventListener("click", () => {
@@ -35,20 +43,23 @@ export const initLoginModal = () => {
     });
   });
 
-  // --- Login Form Submission Logic ---
+  // --- Login Form Validation ---
+  // Basic hardcoded validation for demo purposes
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
+      // Get entered credentials
       const username = document.getElementById("modalUsername").value.trim();
       const password = document.getElementById("modalPassword").value.trim();
 
+      // --- Authentication Logic (Temporary Demo Credentials) ---
       if (username === "admin" && password === "1234") {
-        // SUCCESS
+        // SUCCESS: Save login session and redirect to dashboard
         sessionStorage.setItem("isLoggedIn", "true");
         window.location.href = "admin-dashboard.html";
       } else {
-        // FAILURE
+        // FAILURE: Show alert and inline error message
         alert("Invalid username or password.");
         if (errorMsg) {
           errorMsg.textContent = "Invalid username or password.";
