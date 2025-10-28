@@ -56,6 +56,7 @@ export const initLoginModal = () => {
       // --- Authentication Logic (Temporary Demo Credentials) ---
       if (username === "admin" && password === "1234") {
         // SUCCESS: Save login session and redirect to dashboard
+        sessionStorage.setItem("loginTime", new Date().toISOString());
         sessionStorage.setItem("isLoggedIn", "true");
         window.location.href = "admin-dashboard.html";
       } else {
