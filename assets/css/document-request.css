@@ -172,3 +172,8 @@
   max-width: 64rem;
   margin: 0 auto;
 }
+
+.input-error {
+  border: 2px solid #dc3545;
+  background-color: #fff5f5;
+}
